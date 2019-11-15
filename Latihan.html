@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Program Linier</title>
+  <style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    table{
+      width: 50%;
+    }
+    tr{
+      width:15%;
+    }
+    th, td {
+        padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>PROGRAM LINIER</h2><br> 
+  <h3>Masukkan alias dan nilai sesui dengan format berikut :</h3> <br>
+  <form action="index.php" method="POST">
+  <table border="1px">
+    <tr>
+      <th></th>
+      <th><input type="text" class="header">(X)</th>
+      <th><input type="text" class="header">(Y)</th>
+      <th><input type="text" class="header">(Z)</th>
+    </tr>
+    <tr>
+      <th><input type="text" class="header">(a)</th>
+      <th><input type="text" name="ax"></th>
+      <th><input type="text" name="ay"></th>
+      <th><input type="text" name="az"></th>
+    </tr>
+    <tr>
+      <th><input type="text" class="header">(b)</th>
+      <th><input type="text" name="bx"></th>
+      <th><input type="text" name="by"></th>
+      <th><input type="text" name="bz"></th>
+    </tr>
+    <th><input type="text" class="header">(c)</th>
+    <th><input type="text" name="cx"></th>
+    <th><input type="text" name="cy"></th>
+  </table>
+  <input type="radio" name="sat" id="" value="min">MIN(≥) <br>
+  <input type="radio" name="sat" id="" value="max">MAX(≤) <br>
+  <input type="submit" value="hitung"> <br>
+  <span><?php echo $mm; ?></span>
+  </form>
+</body>
+</html>
