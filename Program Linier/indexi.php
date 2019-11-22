@@ -1,3 +1,4 @@
+<!-- SCRIPT INI DIBUAT OLEH FENDI RIDHO FERDIANSYAH (2019) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +30,9 @@
 </head>
 <body>
     <?php
-
+    if (empty($_POST["ax"])){
+       $_POST["errorax"] = "Masukkan Nilai!";
+    }
     // INISIALISASI I 
     $sat = "";
     $zero = 0;
@@ -64,16 +67,20 @@
 
     // LOGIKA MIN & MAX
     if($_POST["sat"] == "min"){
+        // JIkA MINIMUM
+        //BASIC
         $sat = "≥";
         $ket = "(salah)";
         $tit = "B";
         $opt = "(min)";
         $da = "";
+        //PENENTUAN TITIK
         $maxx = max($x1, $x2);
         $maxy = max($y1, $y2);
         $a = "(".$maxx.",".$zero.")";
         $b = "(".$finresx.",".$zx/$ay.")";
         $c = "(".$zero.",".$maxy.")";
+        // FUNGSI OBJEKTIF
         $resa = $cx*$maxx + $cy * $zero;
         $resb = $cx*$finresx + $cy * $zx/$ay;
         $resc = $cx*$zero + $cy*$maxy;
@@ -81,20 +88,25 @@
         $fa = $cx."(".$maxx.") + ".$cy."(".$zero.") = ".$resa;
         $fb = $cx."(".$finresx.") + ".$cy."(".$zx/$ay.") = ".$resb;
         $fc = $cx."(".$zero.") + ".$cy."(".$maxy.") = ".$resc;
+        // TABEL D YANG KOSONG
         $fd = "";
         $d = "";
     }
     else{
+        // JIKA MAX
+        // BASIC
         $sat = "≤";
         $ket = "(benar)";
         $tit = "C";
         $opt = "(max)";
+        // PENENTUAN TITIK
         $a = "(".$zero.",".$zero.")";
         $minx = min($x1, $x2);
         $miny = min($y1, $y2);
         $b = "(".$minx.",".$zero.")";
         $c = "(".$finresx.",".$zx/$ay.")";
         $d = "(".$zero.",".$miny.")";
+        // FUNGSI OBJEKTIF
         $resb = $cx*$minx + $cy * $zero;
         $resc = $cx*$finresx + $cy * $zx/$ay;
         $resd = $cx*$zero + $cy*$miny;
@@ -102,6 +114,7 @@
         $fa = $cx."(".$zero.") + ".$cy."(".$zero.") = 0";
         $fb = $cx."(".$minx.") + ".$cy."(".$zero.") = ".$resb;
         $fc = $cx."(".$finresx.") + ".$cy."(".$zx/$ay.") = ".$resc;
+        // TABEL D TERISI
         $fd = $cx."(".$zero.") + ".$cy."(".$miny.") = ".$resd;
         $da = "D";
     }
@@ -115,6 +128,9 @@
     $mm2y = $bax."x + ".$bay."y"." = ".$baz;
 
     // TAMPILAN HASIL
+    if($_POST["alx"] && $_POST["aly"] != ""){
+        echo "Misal ".$_POST["alx"]." = x; ".$_POST["aly"]." = y";
+    }
     // MODEL MATEMATIKA
     echo "<h3>MODEL MATEMATIKA</h3><br>";
     echo "(i)".$mm;
@@ -188,6 +204,7 @@
     echo "<br>";
     echo "x = ".$finresx;
     echo "<br>";
+    echo "=====================================================<br>";
     echo $mmx;
     echo "<br>";
     echo $ax."(".$finresx.") + ".$ay."y = ".$az;
@@ -231,5 +248,6 @@
         </tr>
     </table>
     <?php echo $ril;?>
+    <a href="index.html"><button>Ulangi</button></a>
 </body>
 </html>

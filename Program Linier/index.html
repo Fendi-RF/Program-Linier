@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Program Linier</title>
+  <style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    table{
+      width: 50%;
+    }
+    tr{
+      width:15%;
+    }
+    th, td {
+        padding: 5px;
+    }
+  </style>
+  <script>
+    function on(evt){
+      var charCode = (evt.which) ? evt.which : event.keyCode
+      if (charCode > 31 && (charCode < 48 || charCode >57))
+      return false;
+      return true;
+    }
+    function validasi(){
+      var ax = document.getElementsById("ax").value;
+      if (ax == ""){
+        alert("Masukkan nilai dengan lengkap!");
+      }
+    }
+    function hapus(){
+      var msg = confirm("Tindakan ini akan menghapus semua data di tabel. Anda yakin untuk menghapus?");
+      if(msg==true){
+        document.getElementById('alx').value = "";
+        document.getElementById('aly').value = "";
+        document.getElementById('alz').value = "";
+        document.getElementById('ax').value = "";
+        document.getElementById('ay').value = "";
+        document.getElementById('az').value = "";
+        document.getElementById('bx').value = "";
+        document.getElementById('by').value = "";
+        document.getElementById('bz').value = "";
+        document.getElementById('ala').value = "";
+        document.getElementById('alb').value = "";
+        document.getElementById('alc').value = "";
+        document.getElementById('cx').value = "";
+        document.getElementById('cy').value = "";
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>PROGRAM LINIER</h2><br> 
+  <h3>Masukkan alias dan nilai sesuai dengan format berikut :</h3> <br>
+  <form action="indexi.php" method="POST" onsubmit="validasi()">
+  <table border="1px">
+    <tr>
+      <th></th>
+      <th><input type="text" class="header" name="alx" id="alx">(X)</th>
+      <th><input type="text" class="header" name="aly" id="aly">(Y)</th>
+      <th><input type="text" class="header" name="alz" id="alz">(Z)</th>
+    </tr>
+    <tr>
+      <th><input type="text" class="header" id="ala">(a)</th>
+      <th><input type="text" name="ax" id="ax" onkeypress="return on(event)" required></span></th>
+      <th><input type="text" name="ay" id="ay" onkeypress="return on(event)" required></th>
+      <th><input type="text" name="az" id="az" onkeypress="return on(event)" required></th>
+    </tr>
+    <tr>
+      <th><input type="text" class="header" id="alb">(b)</th>
+      <th><input type="text" name="bx" id="bx" onkeypress="return on(event)" required></th>
+      <th><input type="text" name="by" id="by" onkeypress="return on(event)" required></th>
+      <th><input type="text" name="bz" id="bz" onkeypress="return on(event)" require></th>
+    </tr>
+    <th><input type="text" class="header" id="alc">(c)</th>
+    <th><input type="text" name="cx" id="cx"onkeypress="return on(event)" required></th>
+    <th><input type="text" name="cy" id="cy" onkeypress="return on(event)" required></th>
+  </table>
+  <input type="radio" name="sat" id="" value="min">MIN(≥) <br>
+  <input type="radio" name="sat" id="" value="max">MAX(≤) <br>
+  <input type="submit" value="hitung" name="hitung"> <br>
+  </form>
+  <button onclick="hapus()">hapus</button>
+</body>
+</html>
